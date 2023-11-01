@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Academic Curriculum</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #F9F9F9; margin: 0; padding: 0;">
+
+    <h1 style="text-align: center; color: #333; margin: 50px 0;">Academic Curriculum</h1>
+
+    <form method="post" style="width: 60%; margin: 0 auto;">
+        <label for="csv-data" style="display: block; margin-bottom: 10px; font-weight: bold;">Enter course details in CSV format:</label><br>
+        <textarea name="csv-data" rows="10" cols="30" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 2px solid #CCC; resize: vertical;"></textarea><br>
+        <input type="submit" value="Submit" style="background-color: #4CAF50; color: white; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+    </form>
+
+    {% if curriculum %}
+        <h2 style="margin: 50px 0;">Curriculum:</h2>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+            {% for course in curriculum %}
+                <li style="margin-bottom: 20px; padding: 10px; background-color: #FFF; box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2); border-radius: 5px;">{{ course.name }} ({{ course.credits }} credits, period {{ course.period }}, {{ course.duration }} hours/week)</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>
